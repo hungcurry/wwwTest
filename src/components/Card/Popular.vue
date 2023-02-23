@@ -9,7 +9,7 @@ const clickDetail = id => {
   router.push({ path: `/Product/${id}`, query: { router: `${routeStr}` } });
 };
 const contentData = computed(() => {
-  return listObj.data[routeStr];
+  return listObj[routeStr];
 });
 </script>
 <template>

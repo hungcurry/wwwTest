@@ -6,10 +6,12 @@ const router = useRouter();
 const { listObj } = useProductStore();
 const routeStr = route.path;
 const clickDetail = id => {
-  router.push({ path: `/Product/${id}`, query: { router: `${routeStr}` } });
+  router.push({ path: `/Product/${id}`, query: { router: `Index` } });
 };
 const contentData = computed(() => {
-  return listObj[routeStr];
+  if (routeStr === '/') {
+    return listObj.Index;
+  }
 });
 </script>
 <template>

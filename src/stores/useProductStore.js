@@ -16,7 +16,7 @@ import product15 from '@/assets/images/Product/product-15.jpg';
 
 export const ProductStore = defineStore('product', () => {
   const listObj = reactive({
-    '/': [
+    Index: [
       {
         id: 222,
         name: '2023 鏡幻像',

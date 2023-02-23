@@ -36,6 +36,16 @@ useHead({
     { rel: 'apple-touch-icon', href: design },
   ],
 });
+// ===================
+// ... getData ...
+// ===================
+// 產品資料
+const { listObj } = useProductStore();
+const { useGet } = useData();
+const { result: getData } = await useGet(
+  `https://nuxt-api-mu.vercel.app/api/products`,
+);
+listObj.data = getData.data;
 </script>
 <template>
   <div id="id">

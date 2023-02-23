@@ -10,7 +10,7 @@ const clickDetail = id => {
 };
 const contentData = computed(() => {
   if (routeStr === '/') {
-    return listObj.Index;
+    return listObj.data.Index;
   }
 });
 </script>

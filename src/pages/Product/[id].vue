@@ -14,10 +14,10 @@ let cleanTimer = null;
 // 重組 取得id route
 // ===================
 // route
-const keysAry = Object.keys(listObj);
+const keysAry = Object.keys(listObj.data);
 const isRoute = keysAry.includes(routeStr);
 // id
-const valuesAry = Object.values(listObj);
+const valuesAry = Object.values(listObj.data);
 const Ary = [];
 valuesAry.forEach(item => {
   Ary.push(...item);
@@ -36,7 +36,7 @@ const isId = idAry.includes(routeId);
 // ===================
 if (isRoute && isId) {
   const contentData = computed(() => {
-    return listObj[routeStr];
+    return listObj.data[routeStr];
   });
   const data = contentData.value.filter(item => {
     return item.id === routeId;
@@ -59,6 +59,9 @@ function TimeOver() {
     }, 3000);
   }
 }
+onMounted(() => {
+  router.push(`${route.fullPath}`);
+});
 // 離開頁面銷毀
 onUnmounted(() => {
   clearTimeout(cleanTimer);

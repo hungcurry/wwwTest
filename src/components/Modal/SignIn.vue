@@ -8,7 +8,7 @@ const { useInEmail, useInPassword } = storeToRefs(SignStore);
 <!-- modal signIn -->
 <template>
   <div
-    class="dialog overflow-y-auto overflow-x-hidden"
+    class="dialog overflow-y-auto overflow-x-hidden bg-white dark:bg-dark"
     id="signInModal"
     :class="{ active: isSignIn }"
   >
@@ -31,7 +31,7 @@ const { useInEmail, useInPassword } = storeToRefs(SignStore);
             type="email"
             name="dataMail"
             id="useInEmail"
-            class="form-control w-full rounded-lg border-0 p-2 text-base focus:border-primary focus:ring-primary"
+            class="form-control w-full rounded-lg border-0 p-2 text-base text-muted focus:border-primary focus:ring-primary"
             placeholder="請輸入 電子郵件"
             required
           />
@@ -45,7 +45,7 @@ const { useInEmail, useInPassword } = storeToRefs(SignStore);
             type="password"
             name="dataPassword"
             id="useInPassword"
-            class="form-control w-full rounded-lg border-0 p-2 text-base focus:border-primary focus:ring-primary"
+            class="form-control w-full rounded-lg border-0 p-2 text-base text-muted focus:border-primary focus:ring-primary"
             placeholder="請輸入 密碼"
             autocomplete="off"
             required
@@ -61,7 +61,7 @@ const { useInEmail, useInPassword } = storeToRefs(SignStore);
           登入
         </button>
       </form>
-      <div class="mb-8 bg-white px-2 text-center text-sm text-muted">
+      <div class="mb-8 px-2 text-center text-sm text-muted">
         還沒有帳號？
         <a href="javascript:;" class="text-primary" @click="changeSign"
           >註冊一個帳號</a
@@ -72,7 +72,6 @@ const { useInEmail, useInPassword } = storeToRefs(SignStore);
 </template>
 <style lang="scss" scoped>
 .dialog {
-  background-color: white;
   border-radius: 0.8rem;
   left: 50%;
   // 手機最大高度

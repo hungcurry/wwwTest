@@ -73,6 +73,17 @@ a {
   word-break: break-all;
   z-index: 2;
 }
-// * {
-//   outline: 1px solid red;
-// }
+input {
+  color: var.$black;
+}
+input::placeholder {
+  color: #707070;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  box-shadow: 0 0 0 1000px rgba(255, 255, 255, 0) inset;
+  -webkit-text-fill-color: #707070;
+  transition: background-color 5000s ease-in-out 0s;
+}

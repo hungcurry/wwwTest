@@ -34,7 +34,7 @@ const {
                 type="email"
                 name="dataEmail"
                 id="checkEmail"
-                class="form-control w-full rounded-lg border-gray-300 text-base focus:border-primary focus:ring-primary"
+                class="form-control w-full rounded-lg border-gray-300 text-base text-muted focus:border-primary focus:ring-primary"
                 placeholder="example@gmail.com"
                 required
               />
@@ -48,7 +48,7 @@ const {
                 type="text"
                 name="dataName"
                 id="checkName"
-                class="form-control w-full rounded-lg border-gray-300 text-base focus:border-primary focus:ring-primary"
+                class="form-control w-full rounded-lg border-gray-300 text-base text-muted focus:border-primary focus:ring-primary"
                 placeholder="請輸入 姓名"
                 required
               />
@@ -62,7 +62,7 @@ const {
                 type="tel"
                 name="dataPhone"
                 id="checkPhone"
-                class="form-control w-full rounded-lg border-gray-300 text-base focus:border-primary focus:ring-primary"
+                class="form-control w-full rounded-lg border-gray-300 text-base text-muted focus:border-primary focus:ring-primary"
                 placeholder="請輸入電話"
                 required
               />
@@ -76,14 +76,15 @@ const {
                 v-model.trim="checkCode"
                 type="text"
                 id="checkCode"
-                class="form-control w-full rounded-lg border-gray-300 text-base text-primary focus:border-primary focus:ring-primary"
+                class="form-control w-full rounded-lg border-gray-300 text-base text-primary focus:border-primary focus:ring-primary dark:text-secondary"
                 placeholder="測試碼:TG87526"
                 required
               />
             </div>
-            <small class="mb-10 block text-end text-base text-primary">{{
-              codeMessage
-            }}</small>
+            <small
+              class="mb-10 block text-end text-base text-primary dark:text-secondary"
+              >{{ codeMessage }}</small
+            >
           </form>
           <div class="mb-6 lg:mb-3">
             <!-- 小計 -->
@@ -151,4 +152,8 @@ const {
     </div>
   </main>
 </template>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.form-control {
+  background-color: #f7f7f7;
+}
+</style>

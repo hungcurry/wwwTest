@@ -72,7 +72,7 @@ onUnmounted(() => {
 </script>
 <template>
   <section
-    class="relative h-[80rem] bg-white"
+    class="relative h-[80rem]"
     v-if="path !== '/' ? !isRender : isRender"
   >
     <div class="container h-full text-white">

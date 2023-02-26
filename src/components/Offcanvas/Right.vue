@@ -47,7 +47,7 @@ watch(
       <a
         @click="firstCheck"
         href="javascript:;"
-        class="btn-lg btn bg-white px-7 text-m text-primary hover:bg-secondary hover:text-white"
+        class="btn-lg btn bg-white px-7 text-m text-primary hover:bg-secondary hover:text-white dark:bg-dark"
         :class="path === 'process' ? 'disabled' : ''"
         >前往結帳</a
       >

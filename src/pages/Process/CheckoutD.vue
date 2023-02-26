@@ -6,10 +6,12 @@
         <div class="col-lg-6 mx-auto">
           <div class="mb-8 text-center text-primary">
             <span class="material-icons mb-3 text-5xl">check_circle</span>
-            <h2 class="text-m font-400">完成訂購</h2>
+            <h2 class="text-m font-400 dark:text-white">完成訂購</h2>
           </div>
           <p class="mb-10">您的購物憑證代碼為：</p>
-          <p class="mb-10 text-center text-lg text-primary">qr147352</p>
+          <p class="mb-10 text-center text-lg text-primary dark:text-white">
+            qr147352
+          </p>
           <p class="mb-[8rem] lg:mb-[9.6rem]">
             恭喜您已完成「 探索古文明世界 」的購票手續，請於 2023/02/07 ~
             2023/11/01 於展覽入口頁面輸入「展覽憑證代碼」，經「 驗證無誤」

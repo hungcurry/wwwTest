@@ -21,7 +21,7 @@ const contentData = computed(() => {
       <li
         v-for="item in contentData"
         :key="item.name"
-        class="row relative mb-4 bg-fourthly py-6 md:mx-0 md:mb-5 md:p-0"
+        class="row relative mb-4 bg-fourthly py-6 dark:bg-dark md:mx-0 md:mb-5 md:p-0"
       >
         <div class="col-md-4 imgBoxGroup md:px-0">
           <div
@@ -64,7 +64,9 @@ const contentData = computed(() => {
                 useThousands(item.price)
               }}</span>
             </p>
-            <p class="mb-5 flex-grow text-base line-clamp-3 md:text-m">
+            <p
+              class="mb-5 flex-grow-0 text-base line-clamp-3 md:text-m md:line-clamp-4"
+            >
               {{ item.text }}
             </p>
             <div class="flex">

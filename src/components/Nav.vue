@@ -24,7 +24,7 @@ watch(
 </script>
 <template>
   <div
-    class="nav-scroller border-b border-gray-600 bg-white"
+    class="nav-scroller border-b border-gray-600 bg-white dark:bg-dark"
     v-if="path === 'process' ? !isRender : isRender"
   >
     <nav class="subNav md:px-6">

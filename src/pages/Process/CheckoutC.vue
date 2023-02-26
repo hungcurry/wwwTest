@@ -32,7 +32,7 @@ const {
                 type="text"
                 name="dataCredit"
                 id="checkCredit"
-                class="flex w-full rounded-lg border-gray-300 text-base focus:border-primary focus:ring-primary"
+                class="form-control flex w-full rounded-lg border-gray-300 text-base text-muted focus:border-primary focus:ring-primary"
                 placeholder="xxxx-xxxx-xxxx-xxxx"
                 required
               />
@@ -46,7 +46,7 @@ const {
                 type="date"
                 name="dataDate"
                 id="checkDate"
-                class="flex w-full rounded-lg border-gray-300 text-base text-muted focus:border-primary focus:ring-primary"
+                class="form-control flex w-full flex-row rounded-lg border-gray-300 text-base text-muted focus:border-primary focus:ring-primary"
                 placeholder="(MM/YY)"
                 required
               />
@@ -62,7 +62,7 @@ const {
                 type="password"
                 name="dataPassword"
                 id="checkPassword"
-                class="form-control w-full rounded-lg border-gray-300 text-base focus:border-primary focus:ring-primary"
+                class="form-control w-full rounded-lg border-gray-300 text-base text-muted focus:border-primary focus:ring-primary"
                 placeholder="***"
                 autocomplete="off"
                 maxlength="3"
@@ -136,4 +136,8 @@ const {
     </div>
   </main>
 </template>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.form-control {
+  background-color: #f7f7f7;
+}
+</style>

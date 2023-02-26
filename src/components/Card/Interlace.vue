@@ -22,7 +22,7 @@ const content = computed(() => {
       >
         <div class="container">
           <div
-            class="row"
+            class="row dark:text-white"
             :class="{ 'flex-row-reverse text-primary': (idx + 1) % 2 === 0 }"
           >
             <div class="col-lg-5 imgBox relative mb-4 lg:order-2 lg:mb-0">

@@ -11,7 +11,7 @@ const data = reactive({
 });
 </script>
 <template>
-  <footer class="Footer bg-white">
+  <footer class="Footer">
     <div class="container py-3 lg:flex lg:justify-between lg:py-6">
       <div class="md:flex md:items-center">
         <h5 class="text-lg font-400 text-black" title="TICKET BAZAAR">

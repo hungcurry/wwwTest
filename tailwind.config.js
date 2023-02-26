@@ -27,6 +27,7 @@ module.exports = {
         thirdly: '#190014',
         fourthly: '#efefef',
         muted: '#707070',
+        dark: '#242424',
       },
       spacing: {
         1: '0.4rem',

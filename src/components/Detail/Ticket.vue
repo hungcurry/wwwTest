@@ -1,6 +1,6 @@
 <script setup>
 const CartStore = useCartStore();
-const { addCount, addCart, changePrice } = CartStore;
+const { addCount, addCart, changePrice, resetData } = CartStore;
 const { ticketNum, ticketType, ticketPrice } = storeToRefs(CartStore);
 const props = defineProps({
   id: {

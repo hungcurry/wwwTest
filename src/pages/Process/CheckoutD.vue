@@ -1,14 +1,4 @@
-<script setup>
-const router = useRouter();
-const CartStore = useCartStore();
-const { cartAry } = CartStore;
-// 總金額
-const { total } = storeToRefs(CartStore);
-onMounted(() => {
-  cartAry.length = 0;
-  total.value = 0;
-});
-</script>
+<script setup></script>
 <template>
   <main class="main">
     <div class="container">

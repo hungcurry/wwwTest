@@ -25,7 +25,9 @@ const clickMe = () => {
         <span class="material-icons">reorder</span>
       </button>
       <h1 class="logo" title="TICKET BAZAAR">
-        <a href="/" class="block text-lg text-primary">TICKET BAZAAR</a>
+        <NuxtLink to="/" class="block text-lg text-primary"
+          >TICKET BAZAAR</NuxtLink
+        >
       </h1>
       <a
         href="javascript:;"
@@ -35,7 +37,7 @@ const clickMe = () => {
         <span class="material-icons text-black">shopping_cart</span>
         <span
           class="badge badge-lg absolute top-0 left-full h-[20px] w-[20px] -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full border-0 bg-secondary font-700 text-white"
-          >{{ cartAry.length }}
+          >{{ cartAry.data.length }}
         </span>
       </a>
       <!-- collapse -->

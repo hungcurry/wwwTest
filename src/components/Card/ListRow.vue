@@ -15,7 +15,7 @@ watch(
   <ul
     class="cartList lg:flex lg:h-[54.6rem] lg:flex-grow lg:flex-col lg:flex-nowrap lg:overflow-y-auto lg:overflow-x-hidden"
   >
-    <li class="List row mb-5" v-for="list in cartAry" :key="list.id">
+    <li class="List row mb-5" v-for="list in cartAry.data" :key="list.id">
       <div class="col-6 col-lg-3">
         <img
           :src="list.src"

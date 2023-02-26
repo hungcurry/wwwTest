@@ -40,9 +40,9 @@ watch(
       <div class="font-m flex items-center py-11 text-m">
         <span class="mr-1 md:mr-6">小計</span>
         <span class="mr-1">NT$</span>
-        <span class="text-xl font-700 text-secondary">{{
-          useThousands(total)
-        }}</span>
+        <span class="text-xl font-700 text-secondary">
+          {{ useThousands(total) }}
+        </span>
       </div>
       <a
         @click="firstCheck"

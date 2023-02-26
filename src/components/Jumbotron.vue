@@ -11,6 +11,7 @@ onMounted(() => {
   path.value = route.path;
 });
 // --------------------
+const isRender = ref(true);
 const scroll = ref(false);
 const hidden = ref(true);
 const total = ref(5);
@@ -18,16 +19,30 @@ const time = 10;
 const active = ref(0);
 const preActive = ref(0);
 let timeOver = null;
-// ===================
-// ... getData ...
-// ===================
-const listAry = reactive({ data: [] });
-const { useGet } = useData();
-const { result: getData } = await useGet(
-  `https://nuxt-api-mu.vercel.app/api/banners`,
-);
-listAry.data = getData.data;
-
+const kvData = reactive({
+  data: [
+    {
+      backgroundImage: 'url(https://i.imgur.com/B2DoHlW.jpg)',
+      animationDuration: '10s',
+    },
+    {
+      backgroundImage: 'url(https://i.imgur.com/NkyfUOw.jpg)',
+      animationDuration: '10s',
+    },
+    {
+      backgroundImage: 'url(https://i.imgur.com/aL9gdMf.jpg)',
+      animationDuration: '10s',
+    },
+    {
+      backgroundImage: 'url(https://i.imgur.com/Ey3FAy3.jpg)',
+      animationDuration: '10s',
+    },
+    {
+      backgroundImage: 'url(https://i.imgur.com/obLCUJo.jpg)',
+      animationDuration: '10s',
+    },
+  ],
+});
 const styleHandle = (backgroundImage, animationDuration) => {
   return {
     backgroundImage,
@@ -58,7 +73,7 @@ onUnmounted(() => {
 <template>
   <section
     class="relative h-[80rem] bg-white"
-    :class="path !== '/' ? 'hidden' : 'block'"
+    v-if="path !== '/' ? !isRender : isRender"
   >
     <div class="container h-full text-white">
       <div class="row relative z-30 h-full items-center">
@@ -113,7 +128,7 @@ onUnmounted(() => {
       :class="{ isActive: scroll }"
     >
       <li
-        v-for="(item, index) in listAry?.data"
+        v-for="(item, index) in kvData?.data"
         :id="item.id"
         :key="item.id"
         :style="styleHandle(item.backgroundImage, item.animationDuration)"

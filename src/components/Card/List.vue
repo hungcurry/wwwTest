@@ -1,7 +1,21 @@
 <script setup>
+import axios from 'axios';
 const route = useRoute();
 const CartStore = useCartStore();
-const { cartAry, patchCartItem, deleteItem } = CartStore;
+const { cartAry, patchCartItem, deleteItem, updatePrice } = CartStore;
+// ===================
+// ... getData ...
+// ===================
+// 購物車資料
+onMounted(async () => {
+  try {
+    const result = await axios.get('https://nuxt-api-mu.vercel.app/api/carts');
+    cartAry.data = result.data.data;
+    updatePrice();
+  } catch (error) {
+    console.error(`error`);
+  }
+});
 // path
 const path = ref(route.href.slice(1, 8).toLowerCase());
 watch(
@@ -14,7 +28,7 @@ watch(
 <template>
   <div>
     <li
-      v-for="list in cartAry"
+      v-for="list in cartAry.data"
       :key="list.id"
       class="cardList-item align-between relative mb-2 flex rounded-lg bg-white px-4 pt-9 pb-4 text-black lg:mb-3 lg:px-8 lg:pt-7 lg:pb-6"
     >

@@ -27,30 +27,38 @@ const idAry = Ary.map(item => {
 });
 const isId = idAry.includes(routeId);
 
-// console.log(`routeStr:`, routeStr);
-// console.log(`routeId:`, routeId);
-// console.log('isRoute', isRoute);
-// console.log('isId', isId);
+console.log(`------呈現解說-------`);
+console.log(`routeStr:`, routeStr);
+console.log(`routeId:`, routeId);
+console.log('isRoute', isRoute);
+console.log('isId', isId);
 // ===================
 // 取得正確資料
 // ===================
+let contentData = '';
 if (isRoute && isId) {
-  const contentData = computed(() => {
+  contentData = computed(() => {
     return listObj.data[routeStr];
   });
-  const data = contentData.value.filter(item => {
-    return item.id === routeId;
-  });
-  if (data.length !== 0) {
-    content = computed(() => {
-      return data[0];
-    });
-  }
+  dataCheck();
 } else {
   isError.value = true;
   TimeOver();
 }
-
+function dataCheck() {
+  const checkData = contentData.value.filter(item => {
+    return item.id === routeId;
+  });
+  console.log('資料存在', checkData.length);
+  if (checkData.length !== 0) {
+    content = computed(() => {
+      return checkData[0];
+    });
+  } else {
+    isError.value = true;
+    TimeOver();
+  }
+}
 // ---跳轉----
 function TimeOver() {
   if (process.client) {

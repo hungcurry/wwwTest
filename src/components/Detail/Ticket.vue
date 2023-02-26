@@ -37,6 +37,10 @@ const { id, name, src, price, text, firstDate, lastDate } = toRefs(props);
 onMounted(() => {
   ticketPrice.value = price.value;
 });
+// 離開頁面銷毀
+onUnmounted(() => {
+  resetData(price);
+});
 </script>
 <template>
   <div class="row pt-11 pb-10 lg:pt-[8rem]">

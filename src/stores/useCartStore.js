@@ -162,5 +162,6 @@ export const CartStore = defineStore('cart', () => {
     total,
     updatePrice,
     deleteAll,
+    resetData,
   };
 });

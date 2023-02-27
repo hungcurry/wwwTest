@@ -1,5 +1,6 @@
 import axios from 'axios';
 export const CartStore = defineStore('cart', () => {
+  const { $swal } = useNuxtApp();
   const cartAry = reactive({ data: [] });
   const numPatch = ref(0);
   const total = ref(0);
@@ -53,7 +54,13 @@ export const CartStore = defineStore('cart', () => {
       const isKey = idAry.includes(id);
       if (isKey) {
         resetData(price);
-        window.alert('產品 已經在購物車內');
+        $swal.fire({
+          title: `產品 已經在購物車內`,
+          icon: 'error',
+          showConfirmButton: false,
+          timer: 2000,
+          width: '350px',
+        });
         return false;
       }
     }
@@ -75,7 +82,13 @@ export const CartStore = defineStore('cart', () => {
       cartAry.data = res.data.data;
       updatePrice();
       resetData(price);
-      window.alert('加入 購物車 成功');
+      $swal.fire({
+        title: `加入 購物車 成功`,
+        icon: 'success',
+        showConfirmButton: false,
+        timer: 2000,
+        width: '350px',
+      });
     } catch (error) {
       console.error(`error`);
     }
@@ -131,6 +144,13 @@ export const CartStore = defineStore('cart', () => {
         `https://nuxt-api-mu.vercel.app/api/carts/delete/${id}`,
       );
       cartAry.data = res.data.data;
+      $swal.fire({
+        title: `刪除 商品 成功`,
+        icon: 'success',
+        showConfirmButton: false,
+        timer: 2000,
+        width: '350px',
+      });
       updatePrice();
     } catch (error) {
       console.error(`error`);

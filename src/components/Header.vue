@@ -183,5 +183,9 @@ html.dark {
     background-color: #242424;
     color: var.$white;
   }
+  & .swal2-popup {
+    background-color: #242424;
+    color: rgb(199, 194, 194);
+  }
 }
 </style>

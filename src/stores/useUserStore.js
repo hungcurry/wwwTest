@@ -1,4 +1,5 @@
 export const UserStore = defineStore('user', () => {
+  const { $swal } = useNuxtApp();
   const router = useRouter();
   const CartStore = useCartStore();
   const { CloseCart } = useModalStore();
@@ -44,7 +45,13 @@ export const UserStore = defineStore('user', () => {
   // ===================
   const firstCheck = () => {
     if (cartAry.data.length === 0) {
-      window.alert(`請加入 至少一個 購物車品項！`);
+      $swal.fire({
+        title: `請加入 至少一個 購物車品項！`,
+        icon: 'error',
+        showConfirmButton: false,
+        timer: 2000,
+        width: '350px',
+      });
       return;
     }
     CloseCart();
@@ -52,7 +59,13 @@ export const UserStore = defineStore('user', () => {
   };
   const nextCheck = () => {
     if (cartAry.data.length === 0) {
-      window.alert(`請加入 至少一個 購物車品項！`);
+      $swal.fire({
+        title: `請加入 至少一個 購物車品項！`,
+        icon: 'error',
+        showConfirmButton: false,
+        timer: 2000,
+        width: '350px',
+      });
       return;
     }
     router.replace({ path: `./checkoutB` });
@@ -63,7 +76,13 @@ export const UserStore = defineStore('user', () => {
       checkName.value === '' ||
       checkPhone.value === ''
     ) {
-      window.alert(`請輸入 完整資料`);
+      $swal.fire({
+        title: `請輸入 完整資料`,
+        icon: 'info',
+        showConfirmButton: false,
+        timer: 2000,
+        width: '350px',
+      });
       return;
     }
     router.replace({ path: `./checkoutC` });
@@ -74,7 +93,13 @@ export const UserStore = defineStore('user', () => {
       checkDate.value === '' ||
       checkPassword.value === ''
     ) {
-      window.alert(`請輸入 完整資料`);
+      $swal.fire({
+        title: `請輸入 完整資料`,
+        icon: 'info',
+        showConfirmButton: false,
+        timer: 2000,
+        width: '350px',
+      });
       return;
     }
     const userData = {

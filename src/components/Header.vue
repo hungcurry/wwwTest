@@ -1,5 +1,4 @@
 <script setup>
-import { useDark, useToggle } from '@vueuse/core';
 const isOpen = ref(false);
 const elHeight = ref(34);
 const { cartAry } = useCartStore();
@@ -16,14 +15,48 @@ const domH = computed(() => {
 const clickMe = () => {
   isOpen.value = !isOpen.value;
 };
-// dark 暗模式
-const isDark = useDark({
-  selector: 'html',
-  attribute: 'class',
-  valueDark: 'dark',
-  valueLight: 'light',
+// ===================
+// ... 暗模式切換 ...
+// ===================
+const isLight = ref(true);
+onMounted(() => {
+  const html = document.getElementsByTagName('html')[0];
+  const data = JSON.parse(localStorage.getItem('useColor')) || [];
+  if (data.color === undefined) {
+    html.classList.add('light');
+    isLight.value = true;
+    return;
+  }
+  if (data.color === 'dark') {
+    isLight.value = false;
+  } else {
+    isLight.value = true;
+  }
+  html.setAttribute('class', `${data.color}`);
 });
-const toggleDark = useToggle(isDark);
+const handleChangeTheme = () => {
+  const html = document.getElementsByTagName('html')[0];
+  const darkTheme = html.getAttribute('class');
+  if (darkTheme === 'dark') {
+    html.setAttribute('class', `light`);
+    isLight.value = true;
+    localStorage.setItem(
+      'useColor',
+      JSON.stringify({
+        color: 'light',
+      }),
+    );
+  } else {
+    html.setAttribute('class', `dark`);
+    isLight.value = false;
+    localStorage.setItem(
+      'useColor',
+      JSON.stringify({
+        color: 'dark',
+      }),
+    );
+  }
+};
 </script>
 <template>
   <header class="header border-b border-black bg-white dark:bg-dark">
@@ -42,10 +75,10 @@ const toggleDark = useToggle(isDark);
       <div class="flex lg:order-last">
         <ClientOnly>
           <!-- 暗模式切換 -->
-          <button type="button" class="hidden lg:block" @click="toggleDark()">
+          <button type="button" @click="handleChangeTheme">
             <!-- sun icon -->
             <svg
-              v-if="!isDark"
+              v-if="isLight"
               class="sun mr-5 h-[2.4rem] w-[2.4rem] fill-current"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"

@@ -10,15 +10,29 @@ const clickDetail = id => {
 const content = computed(() => {
   return listObj.data[routeStr];
 });
+// ===================
+// ... pagination ...
+// ===================
+const PaginationStore = usePaginationStore();
+const { page, dataNum, pageNum } = storeToRefs(PaginationStore);
+
+const pageCount = computed(() => {
+  return content.value.slice(
+    (page.value - 1) * dataNum.value,
+    (page.value - 1) * dataNum.value + dataNum.value,
+  );
+});
+// 計算頁籤數量
+pageNum.value = Math.ceil(content.value.length / dataNum.value);
 </script>
 <template>
   <section class="product">
     <ul class="mb-6 lg:mb-12">
       <li
-        v-for="(item, idx) in content"
+        v-for="(item, idx) in pageCount"
         :key="item.id"
         class="product-item text-white"
-        :class="[(idx + 1) % 2 === 0 ? 'bg-white' : 'bg-primary']"
+        :class="(idx + 1) % 2 === 0 ? 'bg-white' : 'bg-primary'"
       >
         <div class="container">
           <div
@@ -74,6 +88,7 @@ const content = computed(() => {
         </div>
       </li>
     </ul>
+    <Pagination />
   </section>
 </template>
 <style lang="scss" scoped>

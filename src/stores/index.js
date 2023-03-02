@@ -16,6 +16,8 @@ import { ModalStore } from './useModalStore.js';
 // user
 import { UserStore } from './useUserStore.js';
 import { SignStore } from './useSignStore.js';
+// Pagination
+import { PaginationStore } from './usePaginationStore.js';
 
 export const useCountStore = CountStore;
 export const useFetchStore = FetchStore;
@@ -27,3 +29,4 @@ export const useCartStore = CartStore;
 export const useModalStore = ModalStore;
 export const useUserStore = UserStore;
 export const useSignStore = SignStore;
+export const usePaginationStore = PaginationStore;

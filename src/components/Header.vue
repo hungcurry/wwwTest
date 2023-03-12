@@ -75,7 +75,11 @@ const handleChangeTheme = () => {
       <div class="flex lg:order-last">
         <ClientOnly>
           <!-- 暗模式切換 -->
-          <button type="button" @click="handleChangeTheme">
+          <button
+            class="hidden lg:md:block"
+            type="button"
+            @click="handleChangeTheme"
+          >
             <!-- sun icon -->
             <svg
               v-if="isLight"

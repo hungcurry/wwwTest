@@ -2,6 +2,7 @@
 <template>
   <main class="main">
     <CardPopular />
+    <Carousel />
     <Review />
   </main>
 </template>

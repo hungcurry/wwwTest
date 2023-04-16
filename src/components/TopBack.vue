@@ -1,15 +1,14 @@
 <script setup>
 // scroll
 const backBtn = ref(null);
+const classShow = ref(false);
+
 const scrollFn = () => {
-  const scrollTop =
-    document.documentElement.scrollTop ||
-    window.pageYOffset ||
-    document.body.scrollTop;
+  const scrollTop = window.scrollY || window.pageYOffset;
   if (scrollTop >= 40) {
-    backBtn.value.classList.add('show');
+    classShow.value = true;
   } else {
-    backBtn.value.classList.remove('show');
+    classShow.value = false;
   }
 };
 const scrollToTopFn = () => {
@@ -19,17 +18,20 @@ const scrollToTopFn = () => {
   });
 };
 onMounted(() => {
-  backBtn.value = document.querySelector('.topBack');
-  backBtn.value.addEventListener('click', scrollToTopFn);
+  if (backBtn.value) {
+    backBtn.value.addEventListener('click', scrollToTopFn);
+  }
   window.addEventListener('scroll', scrollFn);
 });
 onUnmounted(() => {
-  backBtn.value.removeEventListener('click', scrollToTopFn);
+  if (backBtn.value) {
+    backBtn.value.removeEventListener('click', scrollToTopFn);
+  }
   window.removeEventListener('scroll', scrollFn);
 });
 </script>
 <template>
-  <div class="topBack"></div>
+  <div class="topBack" ref="backBtn" :class="{ show: classShow }"></div>
 </template>
 <style lang="scss" scoped>
 .topBack {
